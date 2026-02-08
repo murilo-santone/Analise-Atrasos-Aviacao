@@ -1,54 +1,39 @@
-# ✈️ Análise dos dados
+# ✈️ Análise de Atrasos na Aviação Civil
 
-## ❓ Qual(s) a(s) companhia(s) que mais registram atrasos?  
-- Analise qualitativamente e quantitativamente.
+Este projeto realiza uma **Análise Exploratória de Dados (EDA)** para identificar padrões, tendências e fatores críticos que influenciam atrasos em voos comerciais. O objetivo é responder perguntas de negócio através de dados quantitativos e visuais.
 
-## 🛫 A rota ou aeronave podem influenciar nos atrasos?
+## 🛠️ Tecnologias Utilizadas
+O projeto foi desenvolvido em **Python** utilizando Jupyter Notebook e as seguintes bibliotecas para processamento e visualização:
+* **Pandas & Numpy:** Manipulação e limpeza de dados.
+* **Matplotlib & Seaborn:** Criação de gráficos estáticos para análise de tendências e correlações.
+* **Datetime:** Tratamento de séries temporais.
 
-## 📈 Existe algum padrão ou tendência nos atrasos?  
-- Se sim, o que pode ser feito para reduzi-los?
+## 📊 Principais Insights de Negócio
 
-## ❓ Qual(s) a(s) companhia(s) que mais registram atrasos?  
-- Analise qualitativamente e quantitativamente.
+### 1. Ranking de Atrasos por Companhia
+Classificamos as empresas em grupos de performance baseados no tempo médio de atraso.
+* **Maior Índice de Atrasos:** F9 (Frontier Airlines), EV (ExpressJet), YV (Mesa Airlines).
+* **Melhor Performance (Menores Atrasos):** HA (Hawaiian), AS (Alaska Airlines), AA (American Airlines).
 
-## 🕒 Média de atraso - partida  
-### 🔍 Análise Qualitativa e Quantitativa
+> **Nota:** As empresas foram analisadas tanto na partida quanto na chegada, mantendo consistência no ranking de performance.
 
-- Classifiquei em três grupos (Baixo Atraso, Médio Atraso e Alto Atraso):
-  - **Baixo Atraso**: de 0 min a 10 min
-  - **Médio Atraso**: de 11 min a 15 min
-  - **Alto Atraso**: a partir de 16 min
+### 2. Sazonalidade e Tendências Temporais
+Identificou-se uma forte correlação entre períodos de alta temporada e o aumento nos atrasos:
+* **Picos de Atraso:** Junho, Julho e Dezembro.
+* **Causa Provável:** Aumento do fluxo de passageiros (férias) e maior demanda operacional não suportada pela infraestrutura atual.
 
-- Existem 16 empresas na base de dados e as classificamos das que mais se atrasam para as que menos se atrasam:  
-  **F9, EV, YV, FL, WN, 9E, B6, VX, OO, UA, MQ, DL, AA, AS, HA, US**
+### 3. Correlação Partida vs. Chegada
+A análise confirmou uma **correlação positiva forte**:
+* Atrasos na partida quase invariavelmente resultam em atrasos na chegada. A recuperação de tempo durante o voo (rota) mostrou-se ineficaz para mitigar atrasos iniciais significativos.
 
-## 🕒 Média de atraso - chegada  
-### 🔍 Análise Qualitativa e Quantitativa
+---
 
-- Classifiquei em quatro grupos (Chegada Antecipada, Baixo Atraso, Médio Atraso e Alto Atraso):
-  - **Chegada Antecipada**: a partir de -0
-  - **Baixo Atraso**: de 0 min a 10 min
-  - **Médio Atraso**: de 11 min a 15 min
-  - **Alto Atraso**: a partir de 16 min
+## 📂 Estrutura do Projeto
+* `notebook.ipynb`: Código fonte com toda a análise exploratória, tratamento de dados e geração dos gráficos.
+* `datasets/`: Arquivos csv utilizados (se aplicável).
 
-- Existem 16 empresas na base de dados e as classificamos das que mais se atrasam para as que menos se atrasam:  
-  **F9, FL, EV, YV, OO, MQ, WN, B6, 9E, B6, UA, US, VX, DL, AA, HA, AS**
+## 📢 Conclusão
+A análise sugere que medidas operacionais para mitigar atrasos devem ser focadas na **etapa de partida (solo)** e no reforço de infraestrutura durante os meses de **Junho, Julho e Dezembro**, onde o sistema aéreo opera acima da capacidade ideal.
 
-## 🛫 A rota ou aeronave podem influenciar nos atrasos?  
-- A rota ou aeronave não influencia - Companhia F9 e FL  
-  - Peguei duas amostras, companhias que mais se atrasam e verifiquei se haveria uma rota alternativa que levasse a atrasos e identifiquei que ambas as Companhias fazem sempre a mesma rota:  
-    - Mesma companhia  
-    - Origem e Destino  
-    - Distância  
-
-## 📊 Existe algum padrão ou tendência nos atrasos?  
-- Se sim, o que pode ser feito para reduzi-los?
-
-### 📌 Quais os Padrões encontrados?  
-- **Primeiro padrão e tendência:**  
-  Quando há atraso na partida possivelmente terá atraso na chegada, portanto o gráfico ao lado representa forte correlação nos atrasos de partida e atrasos de chegada, independente do destino.
-
-- **Segundo padrão e tendência:**  
-  Pode-se perceber que nos meses de junho, julho e dezembro, períodos possivelmente de férias, há maiores atrasos. Possivelmente pelo maior fluxo de pessoas e maior demanda.  
-  O gráfico representa os atrasos em minutos por mês, referente aos Atrasos de Partida.  
-  Podem ser tomadas medidas para melhor lidar com um fluxo maior ou uma demanda maior, como o uso de mais aviões.
+---
+*Desenvolvido por Murilo Santone*
